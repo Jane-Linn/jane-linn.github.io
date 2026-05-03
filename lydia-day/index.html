@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LYDIA DAY</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #a8d8ea;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      padding: 32px 16px;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .page.hidden { display: none; }
+
+    img {
+      max-width: min(90vw, 900px);
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+
+    .more-btn {
+      font-size: 1.1rem;
+      color: #5a3e2b;
+      background: rgba(255,255,255,0.7);
+      border: none;
+      padding: 12px 28px;
+      border-radius: 999px;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .more-btn:hover {
+      background: rgba(255,255,255,0.95);
+      transform: translateY(-1px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page" id="page1">
+    <img src="img/cover.png" alt="LYDIA DAY">
+    <button class="more-btn" onclick="showInvite()">點擊看更多</button>
+  </div>
+
+  <div class="page hidden" id="page2">
+    <img src="img/invite.png" alt="LYDIA DAY 邀請函">
+  </div>
+
+  <script>
+    function showInvite() {
+      document.getElementById('page1').classList.add('hidden');
+      document.getElementById('page2').classList.remove('hidden');
+    }
+  </script>
+
+</body>
+</html>
